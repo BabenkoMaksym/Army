@@ -14,8 +14,4 @@ public abstract class Soldier {
         System.out.println("Solder " + name + " here. Type - " + type);
     }
 
-
-    public abstract void attack();
-
-    public abstract void defense();
 }

@@ -1,6 +1,10 @@
 package bbn.utils;
 
 import bbn.domain.*;
+import bbn.solderType.Adaptive;
+import bbn.solderType.Defensive;
+import bbn.solderType.Offensive;
+import bbn.solderType.Supportive;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +44,13 @@ public class ArmyUtils {
     public static void attack(Army army) {
         System.out.println("==========Army attacked==========");
         for (Soldier soldier : army.getSoldiers()) {
-            soldier.attack();
+            if (soldier instanceof Adaptive adaptive) {
+                adaptive.attack();
+            } else if (soldier instanceof Offensive offensive) {
+                offensive.attack();
+            } else if (soldier instanceof Supportive support) {
+                support.supportAttack();
+            }
         }
     }
 
@@ -48,7 +58,13 @@ public class ArmyUtils {
     public static void defend(Army army) {
         System.out.println("==========Army defended==========");
         for (Soldier soldier : army.getSoldiers()) {
-            soldier.defense();
+            if (soldier instanceof Defensive defensive) {
+                defensive.defense();
+            } else if (soldier instanceof Adaptive adaptive) {
+                adaptive.defense();
+            } else if (soldier instanceof Supportive support) {
+                support.supportDefense();
+            }
         }
     }
 }

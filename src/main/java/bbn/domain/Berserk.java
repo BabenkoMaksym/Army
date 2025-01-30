@@ -1,18 +1,18 @@
 package bbn.domain;
 
-public class Berserk extends Soldier {
+import bbn.solderType.Offensive;
+
+public class Berserk extends Soldier implements Offensive {
 
     public Berserk(String name, int attack) {
         super(name, attack);
         this.type = SolderType.OFFENSIVE;
     }
 
-    @Override
     public void attack() {
         System.out.println("Berserk " + this.name + " deals " + this.attack + " damage!");
     }
 
-    @Override
     public void defense() {
         System.out.println("Berserk " + this.name +" took a position to defend!");
     }

@@ -1,19 +1,19 @@
 package bbn.domain;
 
-public class Shaman extends Soldier {
+import bbn.solderType.Supportive;
+
+public class Shaman extends Soldier implements Supportive {
 
     public Shaman(String name, int attack) {
         super(name, attack);
         this.type = SolderType.SUPPORTIVE;
     }
 
-    @Override
-    public void attack() {
+    public void supportAttack() {
         this.chantOfAttack();
     }
 
-    @Override
-    public void defense() {
+    public void supportDefense() {
         this.chantOfDefense();
     }
 
